@@ -1,0 +1,63 @@
+{
+    "name": "northwoods/joust",
+    "description": "Fast JSON API framework",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Woody Gilk",
+            "email": "woody.gilk@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.4",
+        "php-common-enums/http-method": "^1.0"
+    },
+    "require-dev": {
+        "captainhook/captainhook": "^5.29",
+        "captainhook/hook-installer": "^1.0",
+        "carthage-software/mago": "^1.50",
+        "phpunit/phpunit": "^13.3",
+        "rregeer/phpunit-coverage-check": "^0.3.1"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Northwoods\\Joust\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Northwoods\\Joust\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "captainhook/hook-installer": true
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "analyze": "mago analyze",
+        "check": "mago format --check",
+        "coverage": "coverage-check build/phpunit/clover.xml 100",
+        "fix": [
+            "mago lint --fix",
+            "mago analyze --fix",
+            "mago format"
+        ],
+        "format": "mago format",
+        "lint": "mago lint",
+        "phpunit": "phpunit -d memory_limit=4G",
+        "test": [
+            "@phpunit",
+            "@coverage"
+        ],
+        "verify": [
+            "@check",
+            "@lint",
+            "@analyze",
+            "@test"
+        ]
+    }
+}

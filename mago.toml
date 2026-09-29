@@ -1,0 +1,52 @@
+#:schema https://mago.carthage.software/1.47.0/schema.json
+# Welcome to Mago!
+# For full documentation, see https://mago.carthage.software/tools/overview
+version = "1"
+php-version = "8.4.0"
+
+[source]
+workspace = "."
+paths = ["src/", "tests/"]
+includes = ["vendor"]
+excludes = []
+
+[source.glob]
+literal-separator = true
+
+[formatter]
+preset = "default"
+
+[linter]
+integrations = ["phpunit"]
+
+[linter.rules]
+assertion-style = { style = "this" }
+too-many-methods = { exclude = ["tests/**/*.php"] }
+ambiguous-constant-access = { enabled = true }
+ambiguous-function-call = { enabled = true }
+no-alternative-syntax = { enabled = true }
+no-fully-qualified-global-class-like = { enabled = true }
+no-fully-qualified-global-constant = { enabled = true }
+no-fully-qualified-global-function = { enabled = true }
+
+[analyzer]
+plugins = []
+excludes = ["tests/**/*.php"]
+ignore = [
+    "unhandled-thrown-type",
+]
+find-unused-definitions = true
+find-unused-expressions = true
+analyze-dead-code = true
+memoize-properties = true
+check-throws = true
+unchecked-exceptions = ["Error", "LogicException"]
+unchecked-exception-classes = []
+check-missing-override = true
+find-unused-parameters = true
+strict-list-index-checks = true
+strict-array-index-existence = true
+allow-array-truthy-operand = false
+no-boolean-literal-comparison = true
+check-missing-type-hints = true
+register-super-globals = true
