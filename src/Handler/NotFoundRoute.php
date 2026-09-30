@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Northwoods\Joust\Handler;
 
 use League\Uri\UriTemplate;
+use LogicException;
 use Northwoods\Joust\Method;
 use Northwoods\Joust\RouteHandler;
 use Northwoods\Joust\RouteInterface;
@@ -18,13 +19,13 @@ final readonly class NotFoundRoute implements RouteInterface
     #[Override]
     public function method(): Method
     {
-        return Method::Get;
+        throw new LogicException('Route applies to any method');
     }
 
     #[Override]
     public function template(): UriTemplate
     {
-        return new UriTemplate('/');
+        throw new LogicException('Route applies to any path');
     }
 
     #[Override]

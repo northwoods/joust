@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Northwoods\Joust\Tests\Handler;
 
+use LogicException;
 use Northwoods\Joust\Handler\NotFoundHandler;
 use Northwoods\Joust\Handler\NotFoundRoute;
-use Northwoods\Joust\Method;
 use Northwoods\Joust\Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -15,16 +15,20 @@ final class NotFoundRouteTest extends TestCase
 {
     public function testMethodIsGet(): void
     {
+        $this->expectException(LogicException::class);
+
         $route = new NotFoundRoute();
 
-        $this->assertSame(Method::Get, $route->method());
+        $route->method();
     }
 
     public function testTemplateIsRoot(): void
     {
+        $this->expectException(LogicException::class);
+
         $route = new NotFoundRoute();
 
-        $this->assertSame('/', (string) $route->template());
+        $route->template();
     }
 
     public function testHandlerResolvesNotFoundHandler(): void
