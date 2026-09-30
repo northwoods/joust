@@ -16,7 +16,7 @@ final readonly class Router
 {
     public function __construct(
         private RouteList $routes,
-        private Route $notFound = new Handler\NotFoundRoute(),
+        private RouteInterface $notFound = new Handler\NotFoundRoute(),
     ) {}
 
     public function match(ServerRequestInterface $request): RouterResult

@@ -20,7 +20,8 @@
         "php-standard-library/vec": "^6.3",
         "psr/container": "^2.0",
         "psr/http-factory": "^1.1",
-        "psr/http-server-handler": "^1.0"
+        "psr/http-server-handler": "^1.0",
+        "wyrihaximus/list-classes-in-directory": "^1.7"
     },
     "require-dev": {
         "captainhook/captainhook": "^5.29",

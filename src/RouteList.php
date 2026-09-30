@@ -11,19 +11,20 @@ use Override;
 use Traversable;
 
 use function Psl\Iter\count;
+use function Psl\Vec\values;
 
 /**
  * @api
- * @implements IteratorAggregate<int, Route>
+ * @implements IteratorAggregate<int, RouteInterface>
  */
 final readonly class RouteList implements Countable, IteratorAggregate
 {
-    /** @var list<Route> */
+    /** @var list<RouteInterface> */
     private array $items;
 
-    public function __construct(Route $route, Route ...$more)
+    public function __construct(RouteInterface ...$items)
     {
-        $this->items = [$route, ...$more];
+        $this->items = values($items);
     }
 
     #[Override]

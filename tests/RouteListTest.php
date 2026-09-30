@@ -7,11 +7,18 @@ namespace Northwoods\Joust\Tests;
 use Northwoods\Joust\RouteList;
 use PHPUnit\Framework\Attributes\CoversClass;
 
-use function iterator_to_array;
+use function Psl\Vec\values;
 
 #[CoversClass(RouteList::class)]
 final class RouteListTest extends TestCase
 {
+    public function testCountsNoRoutes(): void
+    {
+        $list = new RouteList();
+
+        $this->assertCount(0, $list);
+    }
+
     public function testCountsASingleRoute(): void
     {
         $list = new RouteList($this->createRoute());
@@ -33,6 +40,6 @@ final class RouteListTest extends TestCase
 
         $list = new RouteList($first, $second);
 
-        $this->assertSame([$first, $second], iterator_to_array($list));
+        $this->assertSame([$first, $second], values($list));
     }
 }

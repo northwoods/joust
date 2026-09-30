@@ -6,11 +6,11 @@ namespace Northwoods\Joust\Handler;
 
 use League\Uri\UriTemplate;
 use Northwoods\Joust\Method;
-use Northwoods\Joust\Route;
 use Northwoods\Joust\RouteHandler;
+use Northwoods\Joust\RouteInterface;
 use Override;
 
-final class NotFoundRoute implements Route
+final class NotFoundRoute implements RouteInterface
 {
     #[Override]
     public function methods(): iterable

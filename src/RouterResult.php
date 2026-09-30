@@ -20,7 +20,7 @@ final readonly class RouterResult
     }
 
     public function __construct(
-        public Route $route,
+        public RouteInterface $route,
         public ExtractionResult $result,
     ) {}
 
