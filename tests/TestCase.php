@@ -18,14 +18,13 @@ use Psr\Http\Server\RequestHandlerInterface;
 abstract class TestCase extends PHPUnitTestCase
 {
     /**
-     * @param list<Method> $methods
      * @param class-string<RequestHandlerInterface> $handler
      */
     protected function createRoute(
-        array $methods = [Method::Get],
+        Method $method = Method::Get,
         string $template = '/',
         string $handler = TestHandler::class,
     ): Route {
-        return new Route($methods, new UriTemplate($template), new RouteHandler($handler));
+        return new Route($method, new UriTemplate($template), new RouteHandler($handler));
     }
 }

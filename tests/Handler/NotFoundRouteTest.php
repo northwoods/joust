@@ -13,11 +13,11 @@ use PHPUnit\Framework\Attributes\CoversClass;
 #[CoversClass(NotFoundRoute::class)]
 final class NotFoundRouteTest extends TestCase
 {
-    public function testMethodsReturnsEveryMethod(): void
+    public function testMethodIsGet(): void
     {
         $route = new NotFoundRoute();
 
-        $this->assertSame(Method::cases(), [...$route->methods()]);
+        $this->assertSame(Method::Get, $route->method());
     }
 
     public function testTemplateIsRoot(): void

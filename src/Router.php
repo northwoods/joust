@@ -7,8 +7,6 @@ namespace Northwoods\Joust;
 use League\Uri\UriTemplate\ExtractionResult;
 use Psr\Http\Message\ServerRequestInterface;
 
-use function Psl\Iter\contains;
-
 /**
  * @api
  */
@@ -25,7 +23,7 @@ final readonly class Router
         $requestUri = (string) $request->getUri();
 
         foreach ($this->routes as $route) {
-            if (!contains($route->methods(), $requestMethod)) {
+            if ($route->method() !== $requestMethod) {
                 continue;
             }
 

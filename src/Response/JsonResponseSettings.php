@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Northwoods\Joust\Response;
 
+/**
+ * @api
+ */
 final readonly class JsonResponseSettings
 {
     public function __construct(

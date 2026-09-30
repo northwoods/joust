@@ -10,12 +10,15 @@ use Northwoods\Joust\RouteHandler;
 use Northwoods\Joust\RouteInterface;
 use Override;
 
-final class NotFoundRoute implements RouteInterface
+/**
+ * @api
+ */
+final readonly class NotFoundRoute implements RouteInterface
 {
     #[Override]
-    public function methods(): iterable
+    public function method(): Method
     {
-        return Method::cases();
+        return Method::Get;
     }
 
     #[Override]

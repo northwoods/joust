@@ -16,7 +16,7 @@ final class RouterTest extends TestCase
 {
     public function testMatchesRouteByMethodAndUri(): void
     {
-        $route = $this->createRoute([Method::Get], '/users/{id}');
+        $route = $this->createRoute(Method::Get, '/users/{id}');
         $router = new Router(new RouteList($route));
 
         $result = $router->match(new ServerRequest('GET', '/users/42'));
@@ -28,8 +28,8 @@ final class RouterTest extends TestCase
 
     public function testSkipsRoutesWithNonMatchingMethod(): void
     {
-        $post = $this->createRoute([Method::Post], '/users/{id}');
-        $get = $this->createRoute([Method::Get], '/users/{id}');
+        $post = $this->createRoute(Method::Post, '/users/{id}');
+        $get = $this->createRoute(Method::Get, '/users/{id}');
         $router = new Router(new RouteList($post, $get));
 
         $result = $router->match(new ServerRequest('GET', '/users/42'));
@@ -39,8 +39,8 @@ final class RouterTest extends TestCase
 
     public function testContinuesWhenUriDoesNotMatch(): void
     {
-        $miss = $this->createRoute([Method::Get], '/users/{id}');
-        $hit = $this->createRoute([Method::Get], '/posts/{id}');
+        $miss = $this->createRoute(Method::Get, '/users/{id}');
+        $hit = $this->createRoute(Method::Get, '/posts/{id}');
         $router = new Router(new RouteList($miss, $hit));
 
         $result = $router->match(new ServerRequest('GET', '/posts/7'));
@@ -50,7 +50,7 @@ final class RouterTest extends TestCase
 
     public function testReturnsNotFoundWhenUriDoesNotMatch(): void
     {
-        $route = $this->createRoute([Method::Get], '/users/{id}');
+        $route = $this->createRoute(Method::Get, '/users/{id}');
         $router = new Router(new RouteList($route));
 
         $result = $router->match(new ServerRequest('GET', '/other'));
@@ -61,7 +61,7 @@ final class RouterTest extends TestCase
 
     public function testReturnsNotFoundWhenNoRouteMatchesMethod(): void
     {
-        $route = $this->createRoute([Method::Post], '/users/{id}');
+        $route = $this->createRoute(Method::Post, '/users/{id}');
         $router = new Router(new RouteList($route));
 
         $result = $router->match(new ServerRequest('GET', '/users/42'));
@@ -71,8 +71,8 @@ final class RouterTest extends TestCase
 
     public function testUsesCustomNotFoundRoute(): void
     {
-        $notFound = $this->createRoute([Method::Get], '/');
-        $router = new Router(new RouteList($this->createRoute([Method::Post], '/users')), $notFound);
+        $notFound = $this->createRoute(Method::Get, '/');
+        $router = new Router(new RouteList($this->createRoute(Method::Post, '/users')), $notFound);
 
         $result = $router->match(new ServerRequest('GET', '/users'));
 

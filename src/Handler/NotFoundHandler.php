@@ -12,6 +12,9 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
+/**
+ * @api
+ */
 final readonly class NotFoundHandler implements RequestHandlerInterface
 {
     public function __construct(

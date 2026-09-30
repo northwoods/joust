@@ -11,10 +11,7 @@ use League\Uri\UriTemplate;
  */
 interface RouteInterface
 {
-    /**
-     * @return iterable<int, Method>
-     */
-    public function methods(): iterable;
+    public function method(): Method;
 
     public function template(): UriTemplate;
 

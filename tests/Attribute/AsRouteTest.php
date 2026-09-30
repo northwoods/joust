@@ -18,15 +18,15 @@ final class AsRouteTest extends TestCase
     {
         $route = new AsRoute();
 
-        $this->assertSame([Method::Get], $route->methods);
+        $this->assertSame(Method::Get, $route->method);
         $this->assertSame('/', (string) $route->template);
     }
 
-    public function testNormalizesSingleMethodAndTemplate(): void
+    public function testNormalizesMethodAndTemplate(): void
     {
         $route = new AsRoute(Method::Post, '/posts');
 
-        $this->assertSame([Method::Post], $route->methods);
+        $this->assertSame(Method::Post, $route->method);
         $this->assertSame('/posts', (string) $route->template);
     }
 
@@ -34,14 +34,7 @@ final class AsRouteTest extends TestCase
     {
         $route = new AsRoute('PATCH');
 
-        $this->assertSame([Method::Patch], $route->methods);
-    }
-
-    public function testNormalizesArrayOfMethods(): void
-    {
-        $route = new AsRoute([Method::Get, 'POST']);
-
-        $this->assertSame([Method::Get, Method::Post], $route->methods);
+        $this->assertSame(Method::Patch, $route->method);
     }
 
     public function testAcceptsUriTemplateInstance(): void

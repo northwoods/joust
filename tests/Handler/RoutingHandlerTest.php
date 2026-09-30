@@ -24,7 +24,7 @@ final class RoutingHandlerTest extends TestCase
         $handler = new TestHandler(new Psr17Factory());
         $container = new TestContainer([TestHandler::class => $handler]);
 
-        $route = $this->createRoute([Method::Get], '/users/{id}');
+        $route = $this->createRoute(Method::Get, '/users/{id}');
         $routingHandler = new RoutingHandler($container, new Router(new RouteList($route)));
 
         $response = $routingHandler->handle(new ServerRequest('GET', '/users/42'));

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust;
+namespace Northwoods\Joust\Tests\Fixture;
 
 use League\Uri\UriTemplate;
+use Northwoods\Joust\Method;
+use Northwoods\Joust\RouteHandler;
+use Northwoods\Joust\RouteInterface;
 use Override;
 
-/**
- * @api
- */
-final readonly class Route implements RouteInterface
+final readonly class TestRoute implements RouteInterface
 {
     public function __construct(
         private Method $method,

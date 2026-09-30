@@ -51,8 +51,8 @@ final class CollectRoutesTest extends TestCase
         $get = $routes[0] ?? throw new LogicException('Expected a GET route.');
         $delete = $routes[1] ?? throw new LogicException('Expected a DELETE route.');
 
-        $this->assertSame([Method::Get], [...$get->methods()]);
-        $this->assertSame([Method::Delete], [...$delete->methods()]);
+        $this->assertSame(Method::Get, $get->method());
+        $this->assertSame(Method::Delete, $delete->method());
         $this->assertSame('/users/{id}', (string) $get->template());
         $this->assertSame(UserActions::class, $get->handler()->name);
     }

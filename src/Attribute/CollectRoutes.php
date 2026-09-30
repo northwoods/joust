@@ -46,7 +46,7 @@ final readonly class CollectRoutes
         foreach (new ReflectionClass($class)->getAttributes(AsRoute::class) as $attr) {
             $route = $attr->newInstance();
 
-            yield new Route($route->methods, $route->template, $handler);
+            yield new Route($route->method, $route->template, $handler);
         }
     }
 
