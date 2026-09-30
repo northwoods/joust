@@ -17,7 +17,7 @@ literal-separator = true
 preset = "default"
 
 [linter]
-integrations = ["phpunit"]
+integrations = ["phpunit", "psl"]
 
 [linter.rules]
 assertion-style = { style = "this" }
@@ -30,8 +30,8 @@ no-fully-qualified-global-constant = { enabled = true }
 no-fully-qualified-global-function = { enabled = true }
 
 [analyzer]
-plugins = []
-excludes = ["tests/**/*.php"]
+plugins = ["psl", "psr-container"]
+excludes = []
 ignore = [
     "unhandled-thrown-type",
 ]
@@ -39,11 +39,13 @@ find-unused-definitions = true
 find-unused-expressions = true
 analyze-dead-code = true
 memoize-properties = true
+check-name-casing = true
 check-throws = true
 unchecked-exceptions = ["Error", "LogicException"]
 unchecked-exception-classes = []
 check-missing-override = true
 find-unused-parameters = true
+require-api-or-internal = true
 strict-list-index-checks = true
 strict-array-index-existence = true
 allow-array-truthy-operand = false
