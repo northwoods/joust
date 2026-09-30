@@ -12,7 +12,6 @@ use ReflectionClass;
 use WyriHaximus\Lister;
 
 use function is_subclass_of;
-use function Psl\invariant;
 
 final readonly class CollectRoutes
 {
@@ -39,8 +38,6 @@ final readonly class CollectRoutes
      */
     public function on(string $class): iterable
     {
-        invariant($this->isRequestHandler($class), "Not a RequestHandlerInterface: {$class}");
-
         $handler = new RouteHandler($class);
 
         foreach (new ReflectionClass($class)->getAttributes(AsRoute::class) as $attr) {

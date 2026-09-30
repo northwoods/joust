@@ -13,7 +13,7 @@ use Northwoods\Joust\Tests\Fixture\Routes\NotAHandler;
 use Northwoods\Joust\Tests\Fixture\Routes\UserActions;
 use Northwoods\Joust\Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
-use Psl\Exception\InvariantViolationException;
+use Psl\Type\Exception\AssertException;
 
 use function Psl\Vec\map;
 use function Psl\Vec\sort;
@@ -59,7 +59,7 @@ final class CollectRoutesTest extends TestCase
 
     public function testOnRejectsClassThatIsNotAHandler(): void
     {
-        $this->expectException(InvariantViolationException::class);
+        $this->expectException(AssertException::class);
 
         values(new CollectRoutes()->on(NotAHandler::class));
     }

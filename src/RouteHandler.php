@@ -14,8 +14,10 @@ use function Psl\Type\class_string;
  */
 final readonly class RouteHandler
 {
+    /**
+     * @phpstan-assert class-string<RequestHandlerInterface> $name
+     */
     public function __construct(
-        /** @var class-string<RequestHandlerInterface> */
         public string $name,
     ) {
         class_string(RequestHandlerInterface::class)->assert($this->name);

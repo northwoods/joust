@@ -29,7 +29,6 @@ final class RouteHandlerTest extends TestCase
     {
         $this->expectException(AssertException::class);
 
-        // @mago-expect analysis:invalid-argument
         new RouteHandler(stdClass::class);
     }
 
@@ -37,7 +36,6 @@ final class RouteHandlerTest extends TestCase
     {
         $this->expectException(AssertException::class);
 
-        // @mago-expect analysis:possibly-invalid-argument
         new RouteHandler('Northwoods\Joust\Tests\Fixture\DoesNotExist');
     }
 }
