@@ -7,7 +7,7 @@ namespace Joust\Tests\Cache;
 use Joust\Cache\RouteCache;
 use Joust\Cache\RouteCollector;
 use Joust\Method;
-use Joust\RouteInterface;
+use Joust\Route;
 use Joust\RouteList;
 use Joust\Tests\Fixture\Routes\GetUsers;
 use Joust\Tests\Fixture\Routes\UserActions;
@@ -150,8 +150,8 @@ final class RouteCacheTest extends TestCase
     {
         return sort(map(
             values($routes),
-            static fn(RouteInterface $route): string => (
-                $route->method()->value . ' ' . (string) $route->template() . ' ' . $route->handler()->name
+            static fn(Route $route): string => (
+                $route->method->value . ' ' . (string) $route->template . ' ' . $route->handler->name
             ),
         ));
     }

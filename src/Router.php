@@ -25,11 +25,11 @@ final readonly class Router
         $requestUri = (string) $request->getUri();
 
         foreach ($this->routes as $route) {
-            if ($route->method() !== $requestMethod) {
+            if ($route->method !== $requestMethod) {
                 continue;
             }
 
-            $result = $route->template()->extract($requestUri);
+            $result = $route->template->extract($requestUri);
 
             if ($result->isSuccessful()) {
                 return new RouterResult($route, $result);

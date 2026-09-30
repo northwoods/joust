@@ -57,9 +57,9 @@ final class RouterTest extends TestCase
 
         $result = $router->match(new ServerRequest('GET', '/other'));
 
-        $this->assertSame(Method::Get, $result->route->method());
-        $this->assertSame('/other', (string) $result->route->template());
-        $this->assertSame(NotFoundHandler::class, $result->route->handler()->name);
+        $this->assertSame(Method::Get, $result->route->method);
+        $this->assertSame('/other', (string) $result->route->template);
+        $this->assertSame(NotFoundHandler::class, $result->route->handler->name);
         $this->assertTrue($result->result->isEmpty());
     }
 
@@ -70,9 +70,9 @@ final class RouterTest extends TestCase
 
         $result = $router->match(new ServerRequest('GET', '/users/42'));
 
-        $this->assertSame(Method::Get, $result->route->method());
-        $this->assertSame('/users/42', (string) $result->route->template());
-        $this->assertSame(NotFoundHandler::class, $result->route->handler()->name);
+        $this->assertSame(Method::Get, $result->route->method);
+        $this->assertSame('/users/42', (string) $result->route->template);
+        $this->assertSame(NotFoundHandler::class, $result->route->handler->name);
     }
 
     public function testUsesCustomDefaultHandler(): void
@@ -82,6 +82,6 @@ final class RouterTest extends TestCase
 
         $result = $router->match(new ServerRequest('GET', '/users'));
 
-        $this->assertSame($handler, $result->route->handler());
+        $this->assertSame($handler, $result->route->handler);
     }
 }

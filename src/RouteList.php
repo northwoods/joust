@@ -15,14 +15,14 @@ use function Psl\Vec\values;
 
 /**
  * @api
- * @implements IteratorAggregate<int, RouteInterface>
+ * @implements IteratorAggregate<int, Route>
  */
 final readonly class RouteList implements Countable, IteratorAggregate
 {
-    /** @var list<RouteInterface> */
+    /** @var list<Route> */
     private array $items;
 
-    public function __construct(RouteInterface ...$items)
+    public function __construct(Route ...$items)
     {
         $this->items = values($items);
     }

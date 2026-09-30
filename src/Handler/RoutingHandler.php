@@ -26,7 +26,7 @@ final readonly class RoutingHandler implements RequestHandlerInterface
     {
         $result = $this->router->match($request);
 
-        $handler = $result->route->handler()->resolve($this->container);
+        $handler = $result->route->handler->resolve($this->container);
 
         $request = $result->inject($request);
 

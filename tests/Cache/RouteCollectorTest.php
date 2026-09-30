@@ -31,7 +31,7 @@ final class RouteCollectorTest extends TestCase
     {
         $routes = [...new RouteCollector()->in(self::DIRECTORY)];
 
-        $handlers = sort(map($routes, static fn(Route $route): string => $route->handler()->name));
+        $handlers = sort(map($routes, static fn(Route $route): string => $route->handler->name));
 
         $this->assertSame([GetUsers::class, UserActions::class, UserActions::class], $handlers);
     }
@@ -40,7 +40,7 @@ final class RouteCollectorTest extends TestCase
     {
         $routes = [...new RouteCollector()->in(self::DIRECTORY)];
 
-        $handlers = map($routes, static fn(Route $route): string => $route->handler()->name);
+        $handlers = map($routes, static fn(Route $route): string => $route->handler->name);
 
         $this->assertNotContains(NotAHandler::class, $handlers);
     }
@@ -61,10 +61,10 @@ final class RouteCollectorTest extends TestCase
         $get = $routes[0] ?? throw new LogicException('Expected a GET route.');
         $delete = $routes[1] ?? throw new LogicException('Expected a DELETE route.');
 
-        $this->assertSame(Method::Get, $get->method());
-        $this->assertSame(Method::Delete, $delete->method());
-        $this->assertSame('/users/{id}', (string) $get->template());
-        $this->assertSame(UserActions::class, $get->handler()->name);
+        $this->assertSame(Method::Get, $get->method);
+        $this->assertSame(Method::Delete, $delete->method);
+        $this->assertSame('/users/{id}', (string) $get->template);
+        $this->assertSame(UserActions::class, $get->handler->name);
     }
 
     public function testOnYieldsNothingForHandlerWithoutRouteAttributes(): void

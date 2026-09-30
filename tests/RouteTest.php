@@ -21,8 +21,8 @@ final class RouteTest extends TestCase
 
         $route = new Route(Method::Get, $template, $handler);
 
-        $this->assertSame(Method::Get, $route->method());
-        $this->assertSame($template, $route->template());
-        $this->assertSame($handler, $route->handler());
+        $this->assertSame(Method::Get, $route->method);
+        $this->assertSame($template, $route->template);
+        $this->assertSame($handler, $route->handler);
     }
 }
