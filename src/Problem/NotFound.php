@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Problem;
+namespace Joust\Problem;
 
 use Crell\ApiProblem\ApiProblem;
 

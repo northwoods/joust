@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Tests;
+namespace Joust\Tests;
 
-use Northwoods\Joust\RouteHandler;
-use Northwoods\Joust\Tests\Fixture\TestContainer;
-use Northwoods\Joust\Tests\Fixture\TestHandler;
+use Joust\RouteHandler;
+use Joust\Tests\Fixture\TestContainer;
+use Joust\Tests\Fixture\TestHandler;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Psl\Type\Exception\AssertException;
@@ -36,6 +36,6 @@ final class RouteHandlerTest extends TestCase
     {
         $this->expectException(AssertException::class);
 
-        new RouteHandler('Northwoods\Joust\Tests\Fixture\DoesNotExist');
+        new RouteHandler('Joust\Tests\Fixture\DoesNotExist');
     }
 }

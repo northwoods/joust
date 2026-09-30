@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Handler;
+namespace Joust\Handler;
 
+use Joust\Method;
+use Joust\RouteHandler;
+use Joust\RouteInterface;
 use League\Uri\UriTemplate;
 use LogicException;
-use Northwoods\Joust\Method;
-use Northwoods\Joust\RouteHandler;
-use Northwoods\Joust\RouteInterface;
 use Override;
 
 /**

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Tests\Fixture;
+namespace Joust\Tests\Fixture;
 
+use Joust\Method;
+use Joust\RouteHandler;
+use Joust\RouteInterface;
 use League\Uri\UriTemplate;
-use Northwoods\Joust\Method;
-use Northwoods\Joust\RouteHandler;
-use Northwoods\Joust\RouteInterface;
 use Override;
 
 final readonly class TestRoute implements RouteInterface

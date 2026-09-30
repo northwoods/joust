@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Response;
+namespace Joust\Response;
 
 /**
  * @api

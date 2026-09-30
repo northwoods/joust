@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Handler;
+namespace Joust\Handler;
 
 use Crell\ApiProblem\ApiProblem;
-use Northwoods\Joust\Problem\NotFound;
-use Northwoods\Joust\Response\JsonResponseFactory;
+use Joust\Problem\NotFound;
+use Joust\Response\JsonResponseFactory;
 use Override;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

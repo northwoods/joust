@@ -1,6 +1,12 @@
 # Joust
 
-♞ A fast JSON API framework.
+♞♘ Just another JSON API kit.
+
+## Installation
+
+```sh
+composer require joust/joust
+```
 
 ## Usage
 

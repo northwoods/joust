@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Tests;
+namespace Joust\Tests;
 
+use Joust\Method;
+use Joust\Route;
+use Joust\RouteHandler;
+use Joust\Tests\Fixture\TestHandler;
 use League\Uri\UriTemplate;
-use Northwoods\Joust\Method;
-use Northwoods\Joust\Route;
-use Northwoods\Joust\RouteHandler;
-use Northwoods\Joust\Tests\Fixture\TestHandler;
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 use Psr\Http\Server\RequestHandlerInterface;
 

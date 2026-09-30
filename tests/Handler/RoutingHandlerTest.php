@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Tests\Handler;
+namespace Joust\Tests\Handler;
 
-use Northwoods\Joust\Handler\RoutingHandler;
-use Northwoods\Joust\Method;
-use Northwoods\Joust\RouteList;
-use Northwoods\Joust\Router;
-use Northwoods\Joust\RouterResult;
-use Northwoods\Joust\Tests\Fixture\TestContainer;
-use Northwoods\Joust\Tests\Fixture\TestHandler;
-use Northwoods\Joust\Tests\TestCase;
+use Joust\Handler\RoutingHandler;
+use Joust\Method;
+use Joust\RouteList;
+use Joust\Router;
+use Joust\RouterResult;
+use Joust\Tests\Fixture\TestContainer;
+use Joust\Tests\Fixture\TestHandler;
+use Joust\Tests\TestCase;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7\ServerRequest;
 use PHPUnit\Framework\Attributes\CoversClass;

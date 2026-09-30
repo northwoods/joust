@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Tests\Response;
+namespace Joust\Tests\Response;
 
-use Northwoods\Joust\Response\JsonResponseSettings;
-use Northwoods\Joust\Tests\TestCase;
+use Joust\Response\JsonResponseSettings;
+use Joust\Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 use const JSON_INVALID_UTF8_IGNORE;

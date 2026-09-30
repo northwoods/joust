@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Tests\Response;
+namespace Joust\Tests\Response;
 
-use Northwoods\Joust\Problem\NotFound;
-use Northwoods\Joust\Response\JsonResponseFactory;
-use Northwoods\Joust\Response\JsonResponseSettings;
-use Northwoods\Joust\Tests\TestCase;
+use Joust\Problem\NotFound;
+use Joust\Response\JsonResponseFactory;
+use Joust\Response\JsonResponseSettings;
+use Joust\Tests\TestCase;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use PHPUnit\Framework\Attributes\CoversClass;
 

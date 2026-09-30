@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust;
+namespace Joust;
 
 use Psr\Container\ContainerInterface;
 use Psr\Http\Server\RequestHandlerInterface;

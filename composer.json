@@ -1,6 +1,6 @@
 {
-    "name": "northwoods/joust",
-    "description": "Fast JSON API framework",
+    "name": "joust/joust",
+    "description": "Just another JSON API kit",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -14,11 +14,10 @@
         "crell/api-problem": "^3.8",
         "league/uri": "7.x-dev as 7.9.0",
         "league/uri-interfaces": "7.x-dev as 7.9.0",
-        "php-standard-library/dict": "^6.3",
-        "php-standard-library/json": "^6.3",
-        "php-standard-library/str": "^6.3",
-        "php-standard-library/vec": "^6.3",
-        "psr/container": "^2.0",
+        "php-standard-library/json": "^6.2",
+        "php-standard-library/str": "^6.2",
+        "php-standard-library/vec": "^6.2",
+        "psr/container": "^1.0 || ^2.0",
         "psr/http-factory": "^1.1",
         "psr/http-server-handler": "^1.0",
         "wyrihaximus/list-classes-in-directory": "^1.7"
@@ -34,12 +33,12 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Northwoods\\Joust\\": "src/"
+            "Joust\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Northwoods\\Joust\\Tests\\": "tests/"
+            "Joust\\Tests\\": "tests/"
         }
     },
     "config": {

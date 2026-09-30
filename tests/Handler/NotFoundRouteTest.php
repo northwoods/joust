@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Tests\Handler;
+namespace Joust\Tests\Handler;
 
+use Joust\Handler\NotFoundHandler;
+use Joust\Handler\NotFoundRoute;
+use Joust\Tests\TestCase;
 use LogicException;
-use Northwoods\Joust\Handler\NotFoundHandler;
-use Northwoods\Joust\Handler\NotFoundRoute;
-use Northwoods\Joust\Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(NotFoundRoute::class)]

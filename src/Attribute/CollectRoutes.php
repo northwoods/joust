@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Attribute;
+namespace Joust\Attribute;
 
 use Generator;
-use Northwoods\Joust\Route;
-use Northwoods\Joust\RouteHandler;
+use Joust\Route;
+use Joust\RouteHandler;
 use Psr\Http\Server\RequestHandlerInterface;
 use ReflectionClass;
 use WyriHaximus\Lister;

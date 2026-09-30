@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Tests\Attribute;
+namespace Joust\Tests\Attribute;
 
+use Joust\Attribute\AsRoute;
+use Joust\Method;
+use Joust\Tests\TestCase;
 use League\Uri\UriTemplate;
-use Northwoods\Joust\Attribute\AsRoute;
-use Northwoods\Joust\Method;
-use Northwoods\Joust\Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ValueError;
 

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Tests\Fixture\Routes;
+namespace Joust\Tests\Fixture\Routes;
 
+use Joust\Attribute\AsRoute;
+use Joust\Method;
 use LogicException;
-use Northwoods\Joust\Attribute\AsRoute;
-use Northwoods\Joust\Method;
 use Override;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

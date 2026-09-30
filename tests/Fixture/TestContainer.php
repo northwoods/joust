@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Tests\Fixture;
+namespace Joust\Tests\Fixture;
 
 use Override;
 use Psr\Container\ContainerInterface;

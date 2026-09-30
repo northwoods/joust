@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Tests\Attribute;
+namespace Joust\Tests\Attribute;
 
+use Joust\Attribute\CollectRoutes;
+use Joust\Method;
+use Joust\Route;
+use Joust\Tests\Fixture\Routes\GetUsers;
+use Joust\Tests\Fixture\Routes\NotAHandler;
+use Joust\Tests\Fixture\Routes\UserActions;
+use Joust\Tests\TestCase;
 use LogicException;
-use Northwoods\Joust\Attribute\CollectRoutes;
-use Northwoods\Joust\Method;
-use Northwoods\Joust\Route;
-use Northwoods\Joust\Tests\Fixture\Routes\GetUsers;
-use Northwoods\Joust\Tests\Fixture\Routes\NotAHandler;
-use Northwoods\Joust\Tests\Fixture\Routes\UserActions;
-use Northwoods\Joust\Tests\TestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Psl\Type\Exception\AssertException;
 

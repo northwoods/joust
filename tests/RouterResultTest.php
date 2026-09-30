@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Tests;
+namespace Joust\Tests;
 
+use Joust\RouterResult;
 use League\Uri\UriTemplate\ExtractionResult;
-use Northwoods\Joust\RouterResult;
 use Nyholm\Psr7\ServerRequest;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Psl\Type\Exception\AssertException;

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Tests;
+namespace Joust\Tests;
 
-use Northwoods\Joust\RouteList;
+use Joust\RouteList;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 use function Psl\Vec\values;

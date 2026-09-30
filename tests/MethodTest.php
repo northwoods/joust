@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Tests;
+namespace Joust\Tests;
 
-use Northwoods\Joust\Method;
+use Joust\Method;
 use Nyholm\Psr7\ServerRequest;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;

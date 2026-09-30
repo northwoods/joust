@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Attribute;
+namespace Joust\Attribute;
 
 use Attribute;
+use Joust\Method;
 use League\Uri\UriTemplate;
-use Northwoods\Joust\Method;
 
 use function is_string;
 

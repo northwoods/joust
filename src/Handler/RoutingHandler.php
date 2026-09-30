@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Handler;
+namespace Joust\Handler;
 
-use Northwoods\Joust\Router;
+use Joust\Router;
 use Override;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;

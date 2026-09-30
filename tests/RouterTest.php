@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Tests;
+namespace Joust\Tests;
 
-use Northwoods\Joust\Handler\NotFoundRoute;
-use Northwoods\Joust\Method;
-use Northwoods\Joust\RouteList;
-use Northwoods\Joust\Router;
+use Joust\Handler\NotFoundRoute;
+use Joust\Method;
+use Joust\RouteList;
+use Joust\Router;
 use Nyholm\Psr7\ServerRequest;
 use PHPUnit\Framework\Attributes\CoversClass;
 

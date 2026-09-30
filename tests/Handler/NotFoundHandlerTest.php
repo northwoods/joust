@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Northwoods\Joust\Tests\Handler;
+namespace Joust\Tests\Handler;
 
-use Northwoods\Joust\Handler\NotFoundHandler;
-use Northwoods\Joust\Response\JsonResponseFactory;
-use Northwoods\Joust\Tests\TestCase;
+use Joust\Handler\NotFoundHandler;
+use Joust\Response\JsonResponseFactory;
+use Joust\Tests\TestCase;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7\ServerRequest;
 use PHPUnit\Framework\Attributes\CoversClass;
