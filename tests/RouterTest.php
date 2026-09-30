@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Joust\Tests;
 
-use Joust\Handler\NotFoundRoute;
+use Joust\Handler\NotFoundHandler;
 use Joust\Method;
+use Joust\RouteHandler;
 use Joust\RouteList;
 use Joust\Router;
+use Joust\Tests\Fixture\TestHandler;
 use Nyholm\Psr7\ServerRequest;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -55,7 +57,9 @@ final class RouterTest extends TestCase
 
         $result = $router->match(new ServerRequest('GET', '/other'));
 
-        $this->assertInstanceOf(NotFoundRoute::class, $result->route);
+        $this->assertSame(Method::Get, $result->route->method());
+        $this->assertSame('/other', (string) $result->route->template());
+        $this->assertSame(NotFoundHandler::class, $result->route->handler()->name);
         $this->assertTrue($result->result->isEmpty());
     }
 
@@ -66,16 +70,18 @@ final class RouterTest extends TestCase
 
         $result = $router->match(new ServerRequest('GET', '/users/42'));
 
-        $this->assertInstanceOf(NotFoundRoute::class, $result->route);
+        $this->assertSame(Method::Get, $result->route->method());
+        $this->assertSame('/users/42', (string) $result->route->template());
+        $this->assertSame(NotFoundHandler::class, $result->route->handler()->name);
     }
 
-    public function testUsesCustomNotFoundRoute(): void
+    public function testUsesCustomDefaultHandler(): void
     {
-        $notFound = $this->createRoute(Method::Get, '/');
-        $router = new Router(new RouteList($this->createRoute(Method::Post, '/users')), $notFound);
+        $handler = new RouteHandler(TestHandler::class);
+        $router = new Router(new RouteList($this->createRoute(Method::Post, '/users')), $handler);
 
         $result = $router->match(new ServerRequest('GET', '/users'));
 
-        $this->assertSame($notFound, $result->route);
+        $this->assertSame($handler, $result->route->handler());
     }
 }

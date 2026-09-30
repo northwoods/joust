@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Joust;
 
+use Joust\Handler\NotFoundHandler;
+use League\Uri\UriTemplate;
 use League\Uri\UriTemplate\ExtractionResult;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -14,7 +16,7 @@ final readonly class Router
 {
     public function __construct(
         private RouteList $routes,
-        private RouteInterface $notFound = new Handler\NotFoundRoute(),
+        private ?RouteHandler $defaultHandler = null,
     ) {}
 
     public function match(ServerRequestInterface $request): RouterResult
@@ -34,6 +36,11 @@ final readonly class Router
             }
         }
 
-        return new RouterResult($this->notFound, ExtractionResult::empty());
+        $requestHandler = $this->defaultHandler ?? new RouteHandler(NotFoundHandler::class);
+
+        return new RouterResult(
+            new Route($requestMethod, new UriTemplate($requestUri), $requestHandler),
+            ExtractionResult::empty(),
+        );
     }
 }
