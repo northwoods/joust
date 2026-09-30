@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Northwoods\Joust\Tests\Handler;
 
 use Northwoods\Joust\Handler\NotFoundHandler;
+use Northwoods\Joust\Response\JsonResponseFactory;
 use Northwoods\Joust\Tests\TestCase;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7\ServerRequest;
@@ -16,12 +17,12 @@ final class NotFoundHandlerTest extends TestCase
     public function testHandleReturnsJsonNotFoundResponse(): void
     {
         $factory = new Psr17Factory();
-        $handler = new NotFoundHandler($factory, $factory);
+        $handler = new NotFoundHandler(new JsonResponseFactory($factory, $factory));
 
         $response = $handler->handle(new ServerRequest('GET', '/'));
 
         $this->assertSame(404, $response->getStatusCode());
-        $this->assertSame('application/json', $response->getHeaderLine('Content-Type'));
+        $this->assertSame('application/json; charset=utf-8', $response->getHeaderLine('Content-Type'));
         $this->assertSame('{"error":"NotFound"}', (string) $response->getBody());
     }
 }
