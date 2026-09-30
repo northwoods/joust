@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Joust\Attribute;
+namespace Joust\Cache;
 
 use Generator;
+use Joust\Attribute\AsRoute;
 use Joust\Route;
 use Joust\RouteHandler;
 use Psr\Http\Server\RequestHandlerInterface;
@@ -13,10 +14,12 @@ use WyriHaximus\Lister;
 
 use function is_subclass_of;
 
-final readonly class CollectRoutes
+/**
+ * @api
+ */
+final readonly class RouteCollector
 {
     /**
-     * @param non-empty-string $directory
      * @return iterable<int, Route>
      */
     public function in(string $directory): iterable
@@ -40,7 +43,9 @@ final readonly class CollectRoutes
     {
         $handler = new RouteHandler($class);
 
-        foreach (new ReflectionClass($class)->getAttributes(AsRoute::class) as $attr) {
+        $attributes = new ReflectionClass($class)->getAttributes(AsRoute::class);
+
+        foreach ($attributes as $attr) {
             $route = $attr->newInstance();
 
             yield new Route($route->method, $route->template, $handler);
