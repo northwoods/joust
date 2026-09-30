@@ -1,4 +1,4 @@
-#:schema https://mago.carthage.software/1.50.0/schema.json
+#:schema https://mago.carthage.software/1.48.0/schema.json
 # Welcome to Mago!
 # For full documentation, see https://mago.carthage.software/tools/overview
 version = "1"
@@ -35,20 +35,20 @@ excludes = []
 ignore = [
     "unhandled-thrown-type",
 ]
-find-unused-definitions = true
 find-unused-expressions = true
+find-unused-definitions = true
+find-overly-wide-return-types = true
 analyze-dead-code = true
-memoize-properties = true
-check-name-casing = true
 check-throws = true
-unchecked-exceptions = ["Error", "LogicException"]
-unchecked-exception-classes = []
 check-missing-override = true
 find-unused-parameters = true
+check-missing-type-hints = true
+check-closure-missing-type-hints = true
+check-arrow-function-missing-type-hints = true
+enforce-class-finality = true
 require-api-or-internal = true
+check-experimental = true
 strict-list-index-checks = true
 strict-array-index-existence = true
-allow-array-truthy-operand = false
 no-boolean-literal-comparison = true
-check-missing-type-hints = true
-register-super-globals = true
+trust-existence-checks = false
