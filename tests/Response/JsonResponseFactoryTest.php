@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Northwoods\Joust\Tests\Response;
 
+use Northwoods\Joust\Problem\NotFound;
 use Northwoods\Joust\Response\JsonResponseFactory;
 use Northwoods\Joust\Response\JsonResponseSettings;
 use Northwoods\Joust\Tests\TestCase;
@@ -36,15 +37,53 @@ final class JsonResponseFactoryTest extends TestCase
         $this->assertSame('{"error":"NotFound"}', (string) $response->getBody());
     }
 
+    public function testRespondUsesExplicitContentType(): void
+    {
+        $factory = new Psr17Factory();
+        $json = new JsonResponseFactory($factory, $factory);
+
+        $response = $json->respond(201, ['a' => 1], 'application/vnd.api+json');
+
+        $this->assertSame(201, $response->getStatusCode());
+        $this->assertSame('application/vnd.api+json; charset=utf-8', $response->getHeaderLine('Content-Type'));
+        $this->assertSame('{"a":1}', (string) $response->getBody());
+    }
+
+    public function testRespondKeepsContentTypeThatAlreadyDeclaresCharset(): void
+    {
+        $factory = new Psr17Factory();
+        $json = new JsonResponseFactory($factory, $factory);
+
+        $response = $json->respond(200, [], 'text/plain; charset=iso-8859-1');
+
+        $this->assertSame('text/plain; charset=iso-8859-1', $response->getHeaderLine('Content-Type'));
+    }
+
     public function testRespondUsesCustomSettings(): void
     {
         $factory = new Psr17Factory();
-        $json = new JsonResponseFactory($factory, $factory, new JsonResponseSettings('text/plain', true));
+        $settings = new JsonResponseSettings(contentType: 'text/plain', charset: 'iso-8859-1', pretty: true);
+        $json = new JsonResponseFactory($factory, $factory, $settings);
 
         $response = $json->respond(201, ['a' => 1]);
 
         $this->assertSame(201, $response->getStatusCode());
-        $this->assertSame('text/plain', $response->getHeaderLine('Content-Type'));
+        $this->assertSame('text/plain; charset=iso-8859-1', $response->getHeaderLine('Content-Type'));
         $this->assertSame("{\n    \"a\": 1\n}", (string) $response->getBody());
+    }
+
+    public function testProblemRendersApiProblem(): void
+    {
+        $factory = new Psr17Factory();
+        $json = new JsonResponseFactory($factory, $factory);
+
+        $response = $json->problem(new NotFound());
+
+        $this->assertSame(404, $response->getStatusCode());
+        $this->assertSame('application/problem+json; charset=utf-8', $response->getHeaderLine('Content-Type'));
+        $this->assertSame(
+            '{"type":"about:blank","status":404,"detail":"Endpoint not found."}',
+            (string) $response->getBody(),
+        );
     }
 }

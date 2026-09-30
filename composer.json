@@ -11,6 +11,7 @@
     ],
     "require": {
         "php": "^8.4",
+        "crell/api-problem": "^3.8",
         "league/uri": "7.x-dev as 7.9.0",
         "league/uri-interfaces": "7.x-dev as 7.9.0",
         "php-standard-library/dict": "^6.3",

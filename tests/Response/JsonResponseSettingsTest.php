@@ -17,16 +17,23 @@ final class JsonResponseSettingsTest extends TestCase
     {
         $settings = new JsonResponseSettings();
 
-        $this->assertSame('application/json; charset=utf-8', $settings->header);
+        $this->assertSame('application/json', $settings->contentType);
+        $this->assertSame('utf-8', $settings->charset);
         $this->assertFalse($settings->pretty);
         $this->assertSame(0, $settings->flags);
     }
 
     public function testCustomValues(): void
     {
-        $settings = new JsonResponseSettings('application/vnd.api+json', true, JSON_INVALID_UTF8_IGNORE);
+        $settings = new JsonResponseSettings(
+            contentType: 'text/plain',
+            charset: 'iso-8859-1',
+            pretty: true,
+            flags: JSON_INVALID_UTF8_IGNORE,
+        );
 
-        $this->assertSame('application/vnd.api+json', $settings->header);
+        $this->assertSame('text/plain', $settings->contentType);
+        $this->assertSame('iso-8859-1', $settings->charset);
         $this->assertTrue($settings->pretty);
         $this->assertSame(JSON_INVALID_UTF8_IGNORE, $settings->flags);
     }
