@@ -1,3 +1,7 @@
+<div style="text-align:center;margin:0 auto;">
+    <img src="docs/joust-banner.jpg" style="width:100%;max-width:1200px" alt="Joust Banner"/>
+</div>
+
 # Joust
 
 ♞♘ Just another JSON API kit.
